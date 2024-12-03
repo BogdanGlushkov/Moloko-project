@@ -1,9 +1,11 @@
+import logging
 from telegram import Update, ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, CallbackContext, filters
 import asyncio
 import random
+from AppToken import TOKEN
 
-TOKEN = '8180447178:AAH_Gmef_NyCr4mJmuz7BYaxyVyTkmOOFew'
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
 milk_factories = [
     ["Улица Белого потока, 10", "Молокозавод 'Белый поток'"],
