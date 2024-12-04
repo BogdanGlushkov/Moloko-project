@@ -175,13 +175,14 @@ async def handle_response(update: Update, context: CallbackContext):
                 "Спасибо, данные отправлены на обработку в WheyWay. Ожидайте ответа."
             )
             await asyncio.sleep(4)
+            fabric = random.choice(milk_factories)
             if int(update.message.text) >= 100:
                 await update.message.reply_text(
-                    f"{random.choice(milk_factories)} предоставит вам {context.user_data['количество_сыворотки']} литров сыворотки. "
+                    f"{fabric[1]} предоставит вам {context.user_data['количество_сыворотки']} литров сыворотки. "
                     f"Ожидайте молоковоз с {random.choice(hours_farm)}:{random.choice(minutes)}"
                 )
             elif int(update.message.text) < 100:
-                fabric = random.choice(milk_factories)
+                
                 await update.message.reply_text(
                     f"{fabric[1]} предоставит вам {context.user_data['количество_сыворотки']} литров сыворотки. "
                     f"Ожидаем вас с {random.choice(hours_milk)}:{random.choice(minutes)}, по адресу {fabric[0]}"
